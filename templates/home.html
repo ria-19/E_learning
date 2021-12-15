@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+  {% for row in result %}
+    <div class="card shadow bg-white rounded border-dark mb-3">
+        <div class="card-header border-dark mb-3">
+            <a href = "{{ row['url'] }}">View it on GitHub!</a>
+        </div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">{{ row['name'] }}</h5>
+          <p class="card-text">{{ row['des'] }}</p>
+          <a href="{{ row['url'] }}" class="btn btn-outline-dark shadow bg-white rounded">Check it out!</a>
+        </div>
+     </div>
+     <hr>
+              
+  {% endfor %}   
+{% endblock %}

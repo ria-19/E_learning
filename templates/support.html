@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Support
+{% endblock %}
+
+{% block main %}
+      <div class="card shadow bg-white rounded border-dark mb-3">
+        <div class="card-header border-dark mb-3">
+        </div>
+        <div class="card-body text-dark">
+        <h5 class="card-title"><i class="bi bi-emoji-smile"></i> THANK YOU!</h5>
+        <p class="card-text">A general donation of any amount via PayPal.</p>
+        <form name="topaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_donations">
+				<input type="hidden" name="custom" value="{{session['username']}}"/>
+				<input type="hidden" name="business" value="sb-gaujg8962463@business.example.com">
+				<input type="hidden" name="a3" value="10.00">
+				<input type="hidden" name="p3" value="1">
+				<input type="hidden" name="t3" value="M">
+				<input type="hidden" name="sra" value="1">
+				<input type="hidden" name="return" value="http://ec2-18-217-87-146.us-east-2.compute.amazonaws.com/success">
+				<input type="hidden" name="cancel_return" value="http://ec2-18-217-87-146.us-east-2.compute.amazonaws.com/">
+				<input type="hidden" name="notify_url" value="http://ec2-18-217-87-146.us-east-2.compute.amazonaws.com/ipn">
+                <input type="submit" value="donate" name="submit" class="btn btn-outline-dark shadow bg-white rounded">
+        </form> 
+        <h5 class="card-title"><i class="bi bi-github"></i> Contribute </h5>
+        <p class="card-text">Help us improve this open-source project!</p>
+        <form action="https://github.com/ria-19/E_learning">
+            <input type="submit" name="Contribute" class="btn btn-outline-dark shadow bg-white rounded">
+        </form> 
+        </div>
+    </div>
+{% endblock %}
+

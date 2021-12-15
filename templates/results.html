@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+<h2 class="h2">Top Starred repositiories</h2>
+<hr>
+        {% for row in result %}
+            <div class="card shadow bg-white rounded border-dark mb-3">
+                <div class="card-header border-dark mb-3">
+                <a href = "{{ row['url'] }}">View it on GitHub!</a>
+                </div>
+                <div class="card-body text-dark">
+                <h5 class="card-title">{{ row['name'] }}</h5>
+                <p class="card-text">{{ row['des'] }}</p>
+                <form action="/add" method="post">
+                    <input type="hidden" name="url" value="{{ row['url'] }}">
+                    <input type="hidden" name="des" value="{{ row['des'] }}">
+                    <input type="hidden" name="name" value="{{ row['name'] }}">
+                    <button data-toggle="tooltip" data-placement="left" title="Add to Collection" class="btn btn-outline-dark shadow bg-white rounded" type="submit">Add</button>
+                </form>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}   
+{% endblock %}
+
+
+ 

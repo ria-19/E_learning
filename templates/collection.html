@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ session["username"] }}'s Collection
+{% endblock %}
+
+{% block main %}
+            {% if empty %}
+                <h3>You have no stuff in your collection!! Are you looking to learn something new?</h3>
+                <h4><a href="/search">Slide here</a></h4>
+            {% else %}
+                {% for row in rows %}
+                    <div class="card shadow bg-white rounded border-dark mb-3">
+                        <div class="card-header border-dark mb-3">
+                        <a href = "{{ row['url'] }}">View it on GitHub!</a>
+                        </div>
+                        <div class="card-body text-dark">
+                        <h5 class="card-title">{{ row['name'] }}</h5>
+                        <p class="card-text">{{ row['des'] }}</p>
+                        <form action="/remove" method="post">
+                            <input type="hidden" name="rid" value="{{ row['rid'] }}">
+                            <button class="btn btn-outline-dark shadow bg-white rounded" type="submit">Remove</button>
+                        </form> 
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+<h2 class="h2">Which skill do you wish to hone?</h2>
+<hr>
+    <form action="/search" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="topic" placeholder="Topic" type="text">
+        </div>
+        <button class="btn btn-outline-dark shadow bg-white rounded" type="submit">Search</button>
+    </form>
+{% endblock %}
